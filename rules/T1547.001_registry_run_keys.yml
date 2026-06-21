@@ -1,0 +1,20 @@
+title: Persistence via Registry Run Keys - T1547.001
+id: 00000000-0000-0000-0000-000000000003
+status: experimental
+description: Detects modifications to Registry Run Keys commonly used by attackers to establish persistence across system reboots.
+tags:
+    - attack.t1547.001
+logsource:
+    category: registry_set
+    product: windows
+detection:
+    selection:
+        EventType: SetValue
+        TargetObject|contains:
+            - \CurrentVersion\Run
+            - \CurrentVersion\RunOnce
+    condition: selection
+falsepositives:
+    - Legitimate software adding itself to startup on installation (Spotify, Chrome, OneDrive)
+    - System administrators configuring startup applications via scripts
+level: medium
