@@ -1,0 +1,23 @@
+title: Malicious PowerShell Execution - T1059.001
+id: 00000000-0000-0000-0000-000000000002
+status: experimental
+description: Detects PowerShell executed with flags commonly used in malicious activity such as encoded commands, hidden windows, and execution policy bypass.
+tags:
+    - attack.t1059.001
+logsource:
+    category: process_creation
+    product: windows
+detection:
+    selection:
+        Image|endswith: '\powershell.exe'
+        CommandLine|contains:
+            - -enc
+            - -WindowStyle Hidden
+            - -ExecutionPolicy Bypass
+            - -NoProfile
+    condition: selection
+falsepositives:
+    - System administrators running automated deployment scripts
+    - Software deployment tools such as SCCM or Ansible
+    - Legitimate software installers using unsigned PowerShell scripts
+level: high
