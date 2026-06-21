@@ -1,0 +1,21 @@
+title: LSASS Memory Access - Credential Dumping
+id: 00000000-0000-0000-0000-000000000001
+status: experimental
+description: Detects processes accessing LSASS memory with permissions associated with credential dumping. Covers T1003.001 - OS Credential Dumping via LSASS Memory.
+tags:
+    - attack.t1003.001
+logsource:
+    category: process_access
+    product: windows
+detection:
+    selection:
+        TargetImage|endswith: '\lsass.exe'
+        GrantedAccess|contains:
+            - '0x1010'
+            - '0x1410'
+            - '0x1438'
+    condition: selection
+falsepositives:
+    - Antivirus or EDR products accessing LSASS for monitoring purposes
+    - Legitimate administrative tools such as ProcDump used by system administrators
+level: high
