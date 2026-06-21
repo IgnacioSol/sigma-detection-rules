@@ -14,10 +14,10 @@ Built as a hands-on portfolio project while studying for a SOC Analyst role.
 
 | Technique | Title | Severity | Rule | Docs |
 |---|---|---|---|---|
-| T1003.001 | LSASS Memory Access | High | [rule](rules/T1003.001_lsass_memory_access.yml) | [docs](docs/T1003.001_lsass_memory_access.md) |
-| T1059.001 | Malicious PowerShell Execution | High | coming soon | coming soon |
-| T1547.001 | Persistence via Registry Run Keys | Medium | coming soon | coming soon |
-| T1021.001 | Lateral Movement via RDP | Medium | coming soon | coming soon |
+| T1003.001 | LSASS Memory Access - Credential Dumping | High | [rule](rules/T1003.001_lsass_memory_access.yml) | [docs](docs/T1003.001_lsass_memory_access.md) |
+| T1059.001 | Malicious PowerShell Execution | High | [rule](rules/T1059.001_malicious_powershell.yml) | [docs](docs/T1059.001_malicious_powershell.md) |
+| T1547.001 | Persistence via Registry Run Keys | Medium | [rule](rules/T1547.001_registry_run_keys.yml) | [docs](docs/T1547.001_registry_run_keys.md) |
+| T1021.001 | RDP Lateral Movement | High | [rule](rules/T1021.001_rdp_lateral_movement.yml) | [docs](docs/T1021.001_rdp_lateral_movement.md) |
 
 ---
 

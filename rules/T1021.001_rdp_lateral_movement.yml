@@ -1,0 +1,18 @@
+title: Remote Desktop Protocol Lateral Movement - T1021.001
+id: 00000000-0000-0000-0000-000000000004
+status: experimental
+description: Detects successful RDP logon events (LogonType 10) which may indicate lateral movement using stolen credentials.
+tags:
+    - attack.t1021.001
+logsource:
+    product: windows
+    service: security
+detection:
+    selection:
+        EventID: 4624
+        LogonType: 10
+    condition: selection
+falsepositives:
+    - IT administrators using RDP for legitimate remote server management
+    - Helpdesk staff connecting to user machines for technical support
+level: high
